@@ -4,49 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi web con música</title>
+  <title>Mi música</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0f0f0f;
+      background: #111;
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-      text-align: center;
+      padding: 40px;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 30px;
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
-      width: 90%;
-      max-width: 400px;
+    .box {
+      max-width: 500px;
+      margin: auto;
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 12px;
     }
 
     button {
-      margin-top: 15px;
-      padding: 10px 16px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    input[type="range"] {
-      width: 100%;
-      margin-top: 15px;
-    }
-
-    .label {
+      padding: 10px;
       margin-top: 10px;
-      font-size: 14px;
-      opacity: 0.8;
+      cursor: pointer;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -54,66 +39,38 @@
 <body>
 
   <!-- AUDIO -->
-  <audio id="musica" loop preload="auto" muted>
+  <audio id="audio" loop>
     <source src="NI%20ANTES%20NI%20DESPUES%20MP3.mp3" type="audio/mpeg">
   </audio>
 
-  <div class="card">
-    <h1>🎧 Mi música</h1>
-    <p>Reproducción de fondo con control pro</p>
+  <div class="box">
+    <h1>🎧 Mi página</h1>
 
+    <p>Control de música de fondo</p>
+
+    <button onclick="playMusic()">▶ Reproducir música</button>
     <button onclick="toggleMute()">🔊 Silenciar / Activar</button>
 
-    <div class="label">Volumen</div>
-    <input type="range" min="0" max="1" step="0.01" value="0.5" id="volumen">
-
-    <p class="label">Toca la pantalla si no suena automáticamente</p>
+    <input type="range" min="0" max="1" step="0.01" value="0.5" id="vol">
   </div>
 
   <script>
-    const audio = document.getElementById("musica");
-    const volumen = document.getElementById("volumen");
+    const audio = document.getElementById("audio");
+    const vol = document.getElementById("vol");
 
-    // volumen inicial
     audio.volume = 0.5;
 
-    // slider de volumen
-    volumen.addEventListener("input", (e) => {
-      audio.volume = e.target.value;
-    });
+    function playMusic() {
+      audio.play();
+    }
 
-    // mute toggle
     function toggleMute() {
       audio.muted = !audio.muted;
     }
 
-    // fade in suave
-    function fadeIn(audio, duration = 4000) {
-      let vol = 0;
-      audio.volume = 0;
-      audio.muted = false;
-      audio.play();
-
-      const step = 0.02;
-      const interval = duration / (1 / step);
-
-      const fade = setInterval(() => {
-        if (vol < volumen.value) {
-          vol += step;
-          audio.volume = Math.min(vol, volumen.value);
-        } else {
-          clearInterval(fade);
-        }
-      }, interval);
-    }
-
-    // arranque al primer click (requerido por navegadores)
-    window.addEventListener("click", () => {
-      if (audio.paused) {
-        fadeIn(audio);
-      }
-    }, { once: true });
-
+    vol.addEventListener("input", (e) => {
+      audio.volume = e.target.value;
+    });
   </script>
 
 </body>
