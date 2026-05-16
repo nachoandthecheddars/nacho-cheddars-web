@@ -18,6 +18,7 @@ background:#000;
 color:#fff;
 text-align:center;
 margin:0;
+scroll-behavior:smooth;
 }
 
 /* 🎬 VIDEO DE FONDO */
@@ -32,7 +33,7 @@ transform:translate(-50%, -50%);
 z-index:-1;
 }
 
-/* capa para asegurar legibilidad */
+/* oscurecer fondo */
 body::before{
 content:"";
 position:fixed;
@@ -44,12 +45,58 @@ background:rgba(0,0,0,0.35);
 z-index:0;
 }
 
+/* contenido */
 .content{
 position:relative;
 z-index:1;
 }
 
-/* nombre de la banda */
+/* 🧭 MENU */
+.menu-container{
+position:fixed;
+top:20px;
+left:20px;
+z-index:10;
+}
+
+#menu-toggle{
+display:none;
+}
+
+.menu-icon{
+font-size:30px;
+cursor:pointer;
+background:rgba(0,0,0,0.6);
+padding:10px 15px;
+border-radius:10px;
+display:inline-block;
+}
+
+.menu{
+display:none;
+flex-direction:column;
+margin-top:10px;
+background:rgba(0,0,0,0.9);
+padding:15px;
+border-radius:10px;
+}
+
+.menu a{
+color:#fff;
+text-decoration:none;
+padding:10px;
+border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+.menu a:last-child{
+border-bottom:none;
+}
+
+#menu-toggle:checked + .menu-icon + .menu{
+display:flex;
+}
+
+/* título */
 .hero-title{
 padding:20px;
 font-size:48px;
@@ -60,7 +107,7 @@ text-shadow:0 0 20px rgba(0,0,0,0.8);
 
 /* secciones */
 section{
-padding:40px 20px;
+padding:60px 20px;
 }
 
 .foto{
@@ -70,15 +117,7 @@ border-radius:20px;
 margin:10px;
 }
 
-a{
-color:#fff;
-text-decoration:none;
-border:1px solid #fff;
-padding:10px 20px;
-margin:5px;
-display:inline-block;
-}
-
+/* redes */
 .socials{
 display:flex;
 justify-content:center;
@@ -94,6 +133,7 @@ padding:0;
 font-size:40px;
 }
 
+/* video youtube */
 iframe{
 max-width:90%;
 border-radius:20px;
@@ -109,24 +149,45 @@ border-radius:20px;
 <source src="Logo para gift.mp4" type="video/mp4">
 </video>
 
+<!-- 🧭 MENU -->
+<div class="menu-container">
+
+<input type="checkbox" id="menu-toggle">
+
+<label for="menu-toggle" class="menu-icon">
+☰
+</label>
+
+<nav class="menu">
+<a href="#home">Home</a>
+<a href="#galeria">Galería</a>
+<a href="#canciones">Canciones</a>
+<a href="#redes">Redes sociales</a>
+</nav>
+
+</div>
+
 <div class="content">
+
+<!-- HOME -->
+<div id="home"></div>
 
 <header class="hero-title">
 Nacho & The Cheddar's
 </header>
 
-<section>
-
+<!-- GALERIA / FOTO -->
+<section id="galeria">
 <img class="foto" src="Kif28-03-26222.jpg">
-
 </section>
 
-<section>
+<!-- CANCIONES -->
+<section id="canciones">
+
 <h2>Rock Nacional Alternativo</h2>
 <p>Canciones propias, también covers</p>
-</section>
 
-<section>
+<br><br>
 
 <h2>Video</h2>
 
@@ -142,7 +203,8 @@ allowfullscreen>
 
 </section>
 
-<section>
+<!-- REDES -->
+<section id="redes">
 
 <h2>Seguinos en las redes</h2>
 
@@ -151,25 +213,19 @@ allowfullscreen>
 <a class="social"
 href="https://instagram.com/nacho.andthecheddars"
 target="_blank">
-
 <i class="fa-brands fa-instagram"></i>
-
 </a>
 
 <a class="social"
 href="https://youtube.com/@nacho.andthecheddars"
 target="_blank">
-
 <i class="fa-brands fa-youtube"></i>
-
 </a>
 
 <a class="social"
 href="https://tiktok.com/@nacho.andthecheddars"
 target="_blank">
-
 <i class="fa-brands fa-tiktok"></i>
-
 </a>
 
 </div>
