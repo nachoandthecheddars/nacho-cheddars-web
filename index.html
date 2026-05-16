@@ -112,7 +112,7 @@ text-decoration:none;
 font-weight:bold;
 }
 
-/* FOTO */
+/* 📸 FOTO SIN RECORTE (IMPORTANTE) */
 .foto-container{
 display:flex;
 justify-content:center;
@@ -122,7 +122,8 @@ margin-top:40px;
 .foto{
 width:900px;
 max-width:95%;
-height:auto;
+height:auto;      /* 🔥 clave */
+object-fit:unset;  /* 🔥 evita recorte forzado */
 border-radius:20px;
 }
 
@@ -144,7 +145,7 @@ color:#fff;
 
 <body>
 
-<!-- 🎬 VIDEO DE FONDO -->
+<!-- 🎬 VIDEO FONDO -->
 <video autoplay muted loop playsinline class="bg-video">
 <source src="Logo para gift.mp4" type="video/mp4">
 </video>
@@ -174,6 +175,7 @@ Nacho & The Cheddar's
 ▶ Escuchar ahora
 </a>
 
+<!-- FOTO -->
 <section id="galeria">
 
 <div class="foto-container">
@@ -184,7 +186,7 @@ Nacho & The Cheddar's
 
 </section>
 
-<!-- ❌ VIDEO YOUTUBE ELIMINADO -->
+<!-- ❌ NO HAY YOUTUBE -->
 
 <!-- REDES -->
 <section id="redes">
@@ -193,19 +195,19 @@ Nacho & The Cheddar's
 
 <div class="socials">
 
-<a class="social" href="https://instagram.com/nacho.andthecheddars" target="_blank">
+<a href="https://instagram.com/nacho.andthecheddars" target="_blank">
 <i class="fa-brands fa-instagram"></i>
 </a>
 
-<a class="social" href="https://youtube.com/@nacho.andthecheddars" target="_blank">
+<a href="https://youtube.com/@nacho.andthecheddars" target="_blank">
 <i class="fa-brands fa-youtube"></i>
 </a>
 
-<a class="social" href="https://tiktok.com/@nacho.andthecheddars" target="_blank">
+<a href="https://tiktok.com/@nacho.andthecheddars" target="_blank">
 <i class="fa-brands fa-tiktok"></i>
 </a>
 
-<a class="social" href="https://open.spotify.com/user/316s7lxhhqaij2i5higbs2l7l3sq?si=a428917950d242bf" target="_blank">
+<a href="https://open.spotify.com/user/316s7lxhhqaij2i5higbs2l7l3sq?si=a428917950d242bf" target="_blank">
 <i class="fa-brands fa-spotify"></i>
 </a>
 
