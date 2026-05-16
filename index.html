@@ -21,7 +21,7 @@ margin:0;
 scroll-behavior:smooth;
 }
 
-/* 🎬 VIDEO DE FONDO */
+/* 🎬 VIDEO DE FONDO (MEJORADO) */
 .bg-video{
 position:fixed;
 top:50%;
@@ -31,9 +31,12 @@ height:100vh;
 object-fit:cover;
 transform:translate(-50%, -50%);
 z-index:-1;
+
+/* 🔧 NUEVO: menos brillo + más difuso */
 filter:brightness(0.35) blur(2px);
 }
 
+/* overlay adicional oscuro */
 body::before{
 content:"";
 position:fixed;
@@ -45,12 +48,13 @@ background:rgba(0,0,0,0.45);
 z-index:0;
 }
 
+/* contenido */
 .content{
 position:relative;
 z-index:1;
 }
 
-/* MENU */
+/* 🧭 MENU */
 .menu-container{
 position:fixed;
 top:20px;
@@ -85,6 +89,10 @@ padding:10px;
 border-bottom:1px solid rgba(255,255,255,0.2);
 }
 
+.menu a:last-child{
+border-bottom:none;
+}
+
 #menu-toggle:checked + .menu-icon + .menu{
 display:flex;
 }
@@ -99,7 +107,7 @@ text-shadow:0 0 20px rgba(0,0,0,0.8);
 margin-top:80px;
 }
 
-/* botón */
+/* botón Spotify */
 .btn-spotify{
 display:inline-block;
 margin-top:20px;
@@ -109,67 +117,42 @@ color:#fff;
 border-radius:30px;
 text-decoration:none;
 font-weight:bold;
-}
-
-/* 📸 FOTO SIN RECORTE */
-.foto-container{
-position:relative;
-display:flex;
-justify-content:center;
-margin-top:40px;
-}
-
-.foto{
-width:900px;
-max-width:95%;
-height:auto;          /* 🔥 sin recorte */
-border-radius:20px;
-display:block;
-}
-
-/* overlay redes SOBRE la foto */
-.photo-socials{
-position:absolute;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:10px;
-}
-
-/* texto arriba */
-.photo-socials .title{
-font-size:18px;
-font-weight:bold;
-background:rgba(0,0,0,0.5);
-padding:5px 10px;
-border-radius:10px;
-}
-
-/* iconos */
-.photo-socials .icons{
-display:flex;
-gap:15px;
-}
-
-.photo-socials a{
-color:#fff;
-font-size:28px;
-background:rgba(0,0,0,0.5);
-padding:8px 10px;
-border-radius:10px;
-text-decoration:none;
-}
-
-/* hover */
-.photo-socials i{
 transition:0.3s;
 }
 
-.photo-socials i:hover{
+.btn-spotify:hover{
+transform:scale(1.05);
+}
+
+/* foto */
+.foto{
+width:700px;
+max-width:90%;
+border-radius:20px;
+margin:10px;
+}
+
+/* redes */
+.socials{
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.social i{
+font-size:40px;
+color:#fff;
+transition:0.3s;
+}
+
+.social i:hover{
 transform:scale(1.2);
+}
+
+/* iframe */
+iframe{
+max-width:90%;
+border-radius:20px;
 }
 
 </style>
@@ -177,12 +160,12 @@ transform:scale(1.2);
 
 <body>
 
-<!-- 🎬 VIDEO FONDO -->
+<!-- 🎬 VIDEO DE FONDO -->
 <video autoplay muted loop playsinline class="bg-video">
 <source src="Logo para gift.mp4" type="video/mp4">
 </video>
 
-<!-- MENU -->
+<!-- 🧭 MENU -->
 <div class="menu-container">
 
 <input type="checkbox" id="menu-toggle">
@@ -192,6 +175,7 @@ transform:scale(1.2);
 <a href="#home">Home</a>
 <a href="#galeria">Galería</a>
 <a href="#canciones">Canciones</a>
+<a href="#redes">Redes sociales</a>
 </nav>
 
 </div>
@@ -206,38 +190,44 @@ Nacho & The Cheddar's
 ▶ Escuchar ahora
 </a>
 
-<!-- FOTO + REDES SOBRE FOTO -->
 <section id="galeria">
-
-<div class="foto-container">
-
 <img class="foto" src="Kif28-03-26222.jpg">
+</section>
 
-<div class="photo-socials">
+<section id="canciones">
+<h2>Rock Nacional Alternativo</h2>
+<p>Canciones propias, también covers</p>
+</section>
 
-<div class="title">Seguinos en las redes</div>
+<section id="redes">
 
-<div class="icons">
+<h2>Seguinos en las redes</h2>
 
-<a href="https://instagram.com/nacho.andthecheddars" target="_blank">
+<div class="socials">
+
+<a class="social"
+href="https://instagram.com/nacho.andthecheddars"
+target="_blank">
 <i class="fa-brands fa-instagram"></i>
 </a>
 
-<a href="https://youtube.com/@nacho.andthecheddars" target="_blank">
+<a class="social"
+href="https://youtube.com/@nacho.andthecheddars"
+target="_blank">
 <i class="fa-brands fa-youtube"></i>
 </a>
 
-<a href="https://tiktok.com/@nacho.andthecheddars" target="_blank">
+<a class="social"
+href="https://tiktok.com/@nacho.andthecheddars"
+target="_blank">
 <i class="fa-brands fa-tiktok"></i>
 </a>
 
-<a href="https://open.spotify.com/user/316s7lxhhqaij2i5higbs2l7l3sq?si=a428917950d242bf" target="_blank">
+<a class="social"
+href="https://open.spotify.com/user/316s7lxhhqaij2i5higbs2l7l3sq?si=a428917950d242bf"
+target="_blank">
 <i class="fa-brands fa-spotify"></i>
 </a>
-
-</div>
-
-</div>
 
 </div>
 
