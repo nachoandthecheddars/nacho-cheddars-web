@@ -21,7 +21,7 @@ margin:0;
 scroll-behavior:smooth;
 }
 
-/* 🎬 VIDEO DE FONDO */
+/* 🎬 VIDEO DE FONDO (MEJORADO) */
 .bg-video{
 position:fixed;
 top:50%;
@@ -31,9 +31,12 @@ height:100vh;
 object-fit:cover;
 transform:translate(-50%, -50%);
 z-index:-1;
+
+/* 🔧 NUEVO: menos brillo + más difuso */
+filter:brightness(0.35) blur(2px);
 }
 
-/* overlay oscuro */
+/* overlay adicional oscuro */
 body::before{
 content:"";
 position:fixed;
@@ -41,7 +44,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.35);
+background:rgba(0,0,0,0.45);
 z-index:0;
 }
 
@@ -57,12 +60,9 @@ position:fixed;
 top:20px;
 left:20px;
 z-index:100;
-transition:0.3s;
 }
 
-#menu-toggle{
-display:none;
-}
+#menu-toggle{ display:none; }
 
 .menu-icon{
 font-size:30px;
@@ -71,7 +71,6 @@ background:rgba(0,0,0,0.5);
 padding:10px 15px;
 border-radius:10px;
 display:inline-block;
-transition:0.3s;
 }
 
 .menu{
@@ -81,12 +80,6 @@ margin-top:10px;
 background:rgba(0,0,0,0.9);
 padding:15px;
 border-radius:10px;
-animation:fadeMenu 0.3s ease-in-out;
-}
-
-@keyframes fadeMenu{
-from{opacity:0; transform:translateY(-10px);}
-to{opacity:1; transform:translateY(0);}
 }
 
 .menu a{
@@ -100,14 +93,8 @@ border-bottom:1px solid rgba(255,255,255,0.2);
 border-bottom:none;
 }
 
-/* abrir menú */
 #menu-toggle:checked + .menu-icon + .menu{
 display:flex;
-}
-
-/* cambio visual al scrollear */
-.menu-container.scrolled .menu-icon{
-background:rgba(0,0,0,0.85);
 }
 
 /* HERO */
@@ -137,11 +124,6 @@ transition:0.3s;
 transform:scale(1.05);
 }
 
-/* secciones */
-section{
-padding:60px 20px;
-}
-
 /* foto */
 .foto{
 width:700px;
@@ -155,12 +137,6 @@ margin:10px;
 display:flex;
 justify-content:center;
 gap:20px;
-}
-
-.social{
-border:none;
-padding:0;
-color:#fff;
 }
 
 .social i{
@@ -193,10 +169,7 @@ border-radius:20px;
 <div class="menu-container">
 
 <input type="checkbox" id="menu-toggle">
-
-<label for="menu-toggle" class="menu-icon">
-☰
-</label>
+<label for="menu-toggle" class="menu-icon">☰</label>
 
 <nav class="menu">
 <a href="#home">Home</a>
@@ -209,9 +182,6 @@ border-radius:20px;
 
 <div class="content">
 
-<!-- HOME -->
-<div id="home"></div>
-
 <header class="hero-title">
 Nacho & The Cheddar's
 </header>
@@ -220,34 +190,15 @@ Nacho & The Cheddar's
 ▶ Escuchar ahora
 </a>
 
-<!-- FOTO -->
 <section id="galeria">
 <img class="foto" src="Kif28-03-26222.jpg">
 </section>
 
-<!-- CANCIONES -->
 <section id="canciones">
-
 <h2>Rock Nacional Alternativo</h2>
 <p>Canciones propias, también covers</p>
-
-<br>
-
-<h2>Video</h2>
-
-<iframe
-width="560"
-height="315"
-src="https://www.youtube.com/embed/4ffep2h5IcM"
-title="YouTube video player"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen>
-</iframe>
-
 </section>
 
-<!-- REDES -->
 <section id="redes">
 
 <h2>Seguinos en las redes</h2>
@@ -275,9 +226,7 @@ target="_blank">
 <a class="social"
 href="https://open.spotify.com/user/316s7lxhhqaij2i5higbs2l7l3sq?si=a428917950d242bf"
 target="_blank">
-
 <i class="fa-brands fa-spotify"></i>
-
 </a>
 
 </div>
@@ -285,24 +234,6 @@ target="_blank">
 </section>
 
 </div>
-
-<script>
-const menu = document.querySelector(".menu-container");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    menu.classList.add("scrolled");
-  } else {
-    menu.classList.remove("scrolled");
-  }
-});
-
-document.querySelectorAll(".menu a").forEach(link => {
-  link.addEventListener("click", () => {
-    document.getElementById("menu-toggle").checked = false;
-  });
-});
-</script>
 
 </body>
 </html>
