@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nacho & The Cheddar's</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
 
 body{
@@ -21,7 +33,7 @@ transform:translate(-50%, -50%);
 z-index:-1;
 }
 
-/* overlay */
+/* overlay oscuro */
 body::before{
 content:"";
 position:fixed;
@@ -48,16 +60,10 @@ z-index:100;
 transition:0.3s;
 }
 
-/* menú cuando scrollea */
-.menu-container.scrolled .menu-icon{
-background:rgba(0,0,0,0.85);
-}
-
 #menu-toggle{
 display:none;
 }
 
-/* animación icono */
 .menu-icon{
 font-size:30px;
 cursor:pointer;
@@ -94,8 +100,14 @@ border-bottom:1px solid rgba(255,255,255,0.2);
 border-bottom:none;
 }
 
+/* abrir menú */
 #menu-toggle:checked + .menu-icon + .menu{
 display:flex;
+}
+
+/* cambio visual al scrollear */
+.menu-container.scrolled .menu-icon{
+background:rgba(0,0,0,0.85);
 }
 
 /* HERO */
@@ -105,9 +117,10 @@ font-size:52px;
 font-weight:bold;
 letter-spacing:2px;
 text-shadow:0 0 20px rgba(0,0,0,0.8);
+margin-top:80px;
 }
 
-/* botón estilo Spotify */
+/* botón Spotify */
 .btn-spotify{
 display:inline-block;
 margin-top:20px;
@@ -137,7 +150,7 @@ border-radius:20px;
 margin:10px;
 }
 
-/* redes en blanco */
+/* redes */
 .socials{
 display:flex;
 justify-content:center;
@@ -167,3 +180,121 @@ border-radius:20px;
 }
 
 </style>
+</head>
+
+<body>
+
+<!-- 🎬 VIDEO DE FONDO -->
+<video autoplay muted loop playsinline class="bg-video">
+<source src="Logo para gift.mp4" type="video/mp4">
+</video>
+
+<!-- 🧭 MENU -->
+<div class="menu-container">
+
+<input type="checkbox" id="menu-toggle">
+
+<label for="menu-toggle" class="menu-icon">
+☰
+</label>
+
+<nav class="menu">
+<a href="#home">Home</a>
+<a href="#galeria">Galería</a>
+<a href="#canciones">Canciones</a>
+<a href="#redes">Redes sociales</a>
+</nav>
+
+</div>
+
+<div class="content">
+
+<!-- HOME -->
+<div id="home"></div>
+
+<header class="hero-title">
+Nacho & The Cheddar's
+</header>
+
+<a class="btn-spotify" href="#canciones">
+▶ Escuchar ahora
+</a>
+
+<!-- FOTO -->
+<section id="galeria">
+<img class="foto" src="Kif28-03-26222.jpg">
+</section>
+
+<!-- CANCIONES -->
+<section id="canciones">
+
+<h2>Rock Nacional Alternativo</h2>
+<p>Canciones propias, también covers</p>
+
+<br>
+
+<h2>Video</h2>
+
+<iframe
+width="560"
+height="315"
+src="https://www.youtube.com/embed/4ffep2h5IcM"
+title="YouTube video player"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+</iframe>
+
+</section>
+
+<!-- REDES -->
+<section id="redes">
+
+<h2>Seguinos en las redes</h2>
+
+<div class="socials">
+
+<a class="social"
+href="https://instagram.com/nacho.andthecheddars"
+target="_blank">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a class="social"
+href="https://youtube.com/@nacho.andthecheddars"
+target="_blank">
+<i class="fa-brands fa-youtube"></i>
+</a>
+
+<a class="social"
+href="https://tiktok.com/@nacho.andthecheddars"
+target="_blank">
+<i class="fa-brands fa-tiktok"></i>
+</a>
+
+</div>
+
+</section>
+
+</div>
+
+<script>
+const menu = document.querySelector(".menu-container");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    menu.classList.add("scrolled");
+  } else {
+    menu.classList.remove("scrolled");
+  }
+});
+
+document.querySelectorAll(".menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menu-toggle").checked = false;
+  });
+});
+</script>
+
+</body>
+</html>
