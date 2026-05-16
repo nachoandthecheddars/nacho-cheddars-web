@@ -4,55 +4,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi música</title>
+  <title>Mi página</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #111;
+      background: #0f0f0f;
       color: white;
-      padding: 40px;
     }
 
-    .box {
+    /* ACA PODÉS VOLVER A PEGAR TU DISEÑO ORIGINAL ARRIBA */
+    header {
+      padding: 40px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .contenedor-musica {
       max-width: 500px;
-      margin: auto;
-      background: rgba(255,255,255,0.05);
+      margin: 40px auto;
       padding: 20px;
-      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 16px;
+      text-align: center;
+      backdrop-filter: blur(8px);
     }
 
     button {
-      padding: 10px;
-      margin-top: 10px;
+      padding: 10px 15px;
+      margin: 8px;
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
     }
 
-    input {
+    input[type="range"] {
       width: 100%;
       margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      opacity: 0.6;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- AUDIO -->
-  <audio id="audio" loop>
-    <source src="NI%20ANTES%20NI%20DESPUES%20MP3.mp3" type="audio/mpeg">
-  </audio>
+  <!-- 🔥 TU CONTENIDO ORIGINAL VA ARRIBA -->
+  <header>
+    Mi página web
+  </header>
 
-  <div class="box">
-    <h1>🎧 Mi página</h1>
+  <!-- 🎧 MÚSICA INTEGRADA -->
+  <div class="contenedor-musica">
 
-    <p>Control de música de fondo</p>
+    <h2>🎧 Música de fondo</h2>
+    <p>Reproductor integrado en tu sitio</p>
 
-    <button onclick="playMusic()">▶ Reproducir música</button>
-    <button onclick="toggleMute()">🔊 Silenciar / Activar</button>
+    <audio id="audio" loop>
+      <source src="NI%20ANTES%20NI%20DESPUES%20MP3.mp3" type="audio/mpeg">
+    </audio>
+
+    <div>
+      <button onclick="playMusic()">▶ Reproducir</button>
+      <button onclick="toggleMute()">🔊 Silenciar / Activar</button>
+    </div>
 
     <input type="range" min="0" max="1" step="0.01" value="0.5" id="vol">
+
   </div>
+
+  <!-- 🔥 TU CONTENIDO ORIGINAL VA ABAJO -->
+  <footer>
+    © Mi banda - Todos los derechos reservados
+  </footer>
 
   <script>
     const audio = document.getElementById("audio");
