@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nacho & The Cheddar's</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-body { font-family: Arial; background:#000; color:#fff; text-align:center; margin:0; }
 
-header { padding:20px; font-size:28px; font-weight:bold; }
+body{
+font-family:Arial;
+background:#000;
+color:#fff;
+text-align:center;
+margin:0;
+}
 
-section { padding:40px 20px; }
+header{
+padding:20px;
+font-size:28px;
+font-weight:bold;
+}
+
+section{
+padding:40px 20px;
+}
 
 .logo{
-width:350px;
+max-width:350px;
+width:100%;
 height:auto;
-max-width:90%;
 display:block;
 margin:auto;
+object-fit:contain;
 }
 
 .foto{
@@ -30,7 +46,7 @@ border-radius:20px;
 margin:10px;
 }
 
-a {
+a{
 color:#fff;
 text-decoration:none;
 border:1px solid #fff;
@@ -39,15 +55,34 @@ margin:5px;
 display:inline-block;
 }
 
+.socials{
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.social{
+border:none;
+padding:0;
+}
+
 .social i{
 font-size:40px;
 }
+
+iframe{
+max-width:90%;
+border-radius:20px;
+}
+
 </style>
 </head>
 
 <body>
 
-<header>Nacho & The Cheddar's</header>
+<header>
+Nacho & The Cheddar's
+</header>
 
 <section>
 <img class="logo" src="LogoAndTheCheddarsC.png">
@@ -55,7 +90,7 @@ font-size:40px;
 
 <section>
 <h2>Rock Nacional Alternativo</h2>
-<p>Canciones propias, tambien covers</p>
+<p>Canciones propias, también covers</p>
 </section>
 
 <section>
@@ -64,35 +99,54 @@ font-size:40px;
 </section>
 
 <section>
+
 <h2>Video</h2>
 
-<iframe width="560" height="315" 
-src="https://www.youtube.com/embed/4ffep2h5IcM" 
-title="YouTube video player" 
-frameborder="0" 
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+<iframe
+width="560"
+height="315"
+src="https://www.youtube.com/embed/4ffep2h5IcM"
+title="YouTube video player"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen>
 </iframe>
 
 </section>
 
 <section>
+
 <h2>Seguinos</h2>
 
 <div class="socials">
 
-<a class="social" href="https://instagram.com/nacho.andthecheddars" target="_blank">
+<a class="social"
+href="https://instagram.com/nacho.andthecheddars"
+target="_blank">
+
 <i class="fa-brands fa-instagram"></i>
+
 </a>
 
-<a class="social" href="https://youtube.com/@nacho.andthecheddars" target="_blank">
+<a class="social"
+href="https://youtube.com/@nacho.andthecheddars"
+target="_blank">
+
 <i class="fa-brands fa-youtube"></i>
+
 </a>
 
-<a class="social" href="https://tiktok.com/@nacho.andthecheddars" target="_blank">
+<a class="social"
+href="https://tiktok.com/@nacho.andthecheddars"
+target="_blank">
+
 <i class="fa-brands fa-tiktok"></i>
+
 </a>
 
 </div>
 
 </section>
+
+</body>
+</html>
