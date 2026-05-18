@@ -14,17 +14,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:#000;
 color:#fff;
 text-align:center;
-margin:0;
 scroll-behavior:smooth;
 overflow-x:hidden;
 }
 
-/* 🎬 VIDEO DE FONDO */
+/* 🎬 VIDEO FONDO */
 .bg-video{
 position:fixed;
 top:50%;
@@ -33,26 +38,31 @@ width:100vw;
 height:100vh;
 object-fit:cover;
 transform:translate(-50%, -50%);
-z-index:-1;
-filter:brightness(0.35) blur(2px);
+z-index:-3;
+filter:
+brightness(0.18)
+blur(3px)
+contrast(1.15);
 }
 
 /* overlay oscuro */
 body::before{
 content:"";
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.45);
-z-index:0;
+inset:0;
+background:
+linear-gradient(
+to bottom,
+rgba(0,0,0,0.45),
+rgba(0,0,0,0.7)
+);
+z-index:-2;
 }
 
-/* contenido */
+/* CONTENIDO */
 .content{
 position:relative;
-z-index:1;
+z-index:2;
 }
 
 /* 🧭 MENU */
@@ -60,7 +70,7 @@ z-index:1;
 position:fixed;
 top:20px;
 left:20px;
-z-index:100;
+z-index:999;
 }
 
 #menu-toggle{
@@ -70,28 +80,37 @@ display:none;
 .menu-icon{
 font-size:30px;
 cursor:pointer;
-background:rgba(0,0,0,0.5);
+background:rgba(0,0,0,0.55);
 padding:10px 15px;
-border-radius:10px;
+border-radius:12px;
 display:inline-block;
 backdrop-filter:blur(5px);
+border:1px solid rgba(255,255,255,0.1);
 }
 
 .menu{
 display:none;
 flex-direction:column;
 margin-top:10px;
-background:rgba(0,0,0,0.9);
+background:rgba(0,0,0,0.92);
 padding:15px;
-border-radius:10px;
+border-radius:15px;
+min-width:220px;
+backdrop-filter:blur(8px);
 }
 
 .menu a{
 color:#fff;
 text-decoration:none;
-padding:10px;
-border-bottom:1px solid rgba(255,255,255,0.2);
-font-weight:bold;
+padding:12px;
+font-size:15px;
+letter-spacing:1px;
+border-bottom:1px solid rgba(255,255,255,0.12);
+transition:0.3s;
+}
+
+.menu a:hover{
+background:rgba(255,255,255,0.08);
 }
 
 .menu a:last-child{
@@ -102,7 +121,7 @@ border-bottom:none;
 display:flex;
 }
 
-/* 🎸 LOGO PRINCIPAL */
+/* 🎸 HERO */
 .hero-logo{
 margin-top:40px;
 display:flex;
@@ -112,75 +131,109 @@ padding:20px;
 }
 
 .hero-logo img{
-width:900px;
+width:950px;
 max-width:94%;
 filter:
-drop-shadow(0 10px 25px rgba(0,0,0,0.85));
+drop-shadow(0 8px 30px rgba(0,0,0,0.95));
 }
 
-/* botón Spotify */
+/* 🎵 BOTÓN */
 .btn-spotify{
 display:inline-block;
-margin-top:10px;
-padding:14px 30px;
-background:#1DB954;
+margin-top:5px;
+padding:15px 34px;
+background:#d1a129;
 color:#fff;
-border-radius:40px;
+border-radius:50px;
 text-decoration:none;
 font-weight:bold;
-font-size:16px;
+font-size:15px;
+letter-spacing:1px;
 transition:0.3s;
-box-shadow:0 0 15px rgba(29,185,84,0.4);
+border:2px solid rgba(255,255,255,0.08);
+
+box-shadow:
+0 0 20px rgba(209,161,41,0.25);
 }
 
 .btn-spotify:hover{
 transform:scale(1.05);
-box-shadow:0 0 25px rgba(29,185,84,0.7);
+
+box-shadow:
+0 0 30px rgba(209,161,41,0.45);
 }
 
-/* foto */
+/* 📸 FOTO */
+#galeria{
+margin-top:40px;
+}
+
 .foto{
-width:700px;
-max-width:90%;
-border-radius:20px;
-margin:30px 10px;
-box-shadow:0 0 30px rgba(0,0,0,0.6);
+width:760px;
+max-width:92%;
+border-radius:26px;
+
+box-shadow:
+0 0 35px rgba(0,0,0,0.7);
+
+border:2px solid rgba(255,255,255,0.06);
 }
 
-/* redes */
+/* 🌐 REDES */
+#redes{
+margin-top:60px;
+padding-bottom:60px;
+}
+
+#redes h2{
+font-size:30px;
+margin-bottom:25px;
+letter-spacing:1px;
+
+text-shadow:
+0 0 15px rgba(0,0,0,0.9);
+}
+
 .socials{
 display:flex;
 justify-content:center;
-gap:25px;
-margin-bottom:50px;
-margin-top:20px;
+align-items:center;
+gap:28px;
 flex-wrap:wrap;
 }
 
-.social i{
-font-size:42px;
-color:#fff;
+.social{
+width:72px;
+height:72px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+rgba(255,255,255,0.05);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+backdrop-filter:blur(6px);
+
 transition:0.3s;
 }
 
-.social i:hover{
-transform:scale(1.2);
+.social:hover{
+transform:translateY(-4px) scale(1.08);
+
+background:
+rgba(255,255,255,0.12);
 }
 
-/* títulos */
-h2{
-font-size:32px;
-margin-top:30px;
-text-shadow:0 0 15px rgba(0,0,0,0.8);
+.social i{
+font-size:34px;
+color:#fff;
 }
 
-/* iframe */
-iframe{
-max-width:90%;
-border-radius:20px;
-}
-
-/* 📱 RESPONSIVE */
+/* 📱 MOBILE */
 @media(max-width:768px){
 
 .hero-logo{
@@ -191,22 +244,26 @@ margin-top:80px;
 width:95%;
 }
 
-.menu-icon{
-font-size:26px;
-padding:8px 12px;
-}
-
 .btn-spotify{
 font-size:14px;
-padding:12px 24px;
+padding:13px 24px;
+}
+
+#redes h2{
+font-size:24px;
+}
+
+.social{
+width:62px;
+height:62px;
 }
 
 .social i{
-font-size:34px;
+font-size:28px;
 }
 
-h2{
-font-size:24px;
+.menu{
+min-width:190px;
 }
 
 }
@@ -241,7 +298,7 @@ font-size:24px;
 
 <!-- 🎸 LOGO -->
 <header class="hero-logo">
-<img src="LogoTitulo.png" alt="Nacho and The Cheddar's">
+<img src="LogoTitulo.png" alt="Nacho & The Cheddar's">
 </header>
 
 <!-- 🎵 BOTÓN -->
