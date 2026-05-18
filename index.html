@@ -12,6 +12,9 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+<!-- NUEVA TIPOGRAFÍA -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
 <style>
 
 body{
@@ -23,7 +26,7 @@ margin:0;
 scroll-behavior:smooth;
 }
 
-/* 🎬 VIDEO DE FONDO (MEJORADO) */
+/* 🎬 VIDEO DE FONDO */
 .bg-video{
 position:fixed;
 top:50%;
@@ -34,11 +37,11 @@ object-fit:cover;
 transform:translate(-50%, -50%);
 z-index:-1;
 
-/* 🔧 NUEVO: menos brillo + más difuso */
+/* menos brillo + más difuso */
 filter:brightness(0.35) blur(2px);
 }
 
-/* overlay adicional oscuro */
+/* overlay oscuro */
 body::before{
 content:"";
 position:fixed;
@@ -64,7 +67,9 @@ left:20px;
 z-index:100;
 }
 
-#menu-toggle{ display:none; }
+#menu-toggle{
+display:none;
+}
 
 .menu-icon{
 font-size:30px;
@@ -99,14 +104,17 @@ border-bottom:none;
 display:flex;
 }
 
-/* HERO */
+/* 🎸 TITULO PRINCIPAL */
 .hero-title{
 padding:20px;
-font-size:52px;
-font-weight:bold;
-letter-spacing:2px;
-text-shadow:0 0 20px rgba(0,0,0,0.8);
+font-size:72px;
+font-family:'Bebas Neue', sans-serif;
+letter-spacing:4px;
+text-shadow:
+0 0 10px rgba(0,0,0,0.9),
+0 0 25px rgba(0,0,0,0.7);
 margin-top:80px;
+color:#fff;
 }
 
 /* botón Spotify */
@@ -139,6 +147,7 @@ margin:10px;
 display:flex;
 justify-content:center;
 gap:20px;
+margin-bottom:40px;
 }
 
 .social i{
@@ -157,6 +166,24 @@ max-width:90%;
 border-radius:20px;
 }
 
+/* 📱 RESPONSIVE */
+@media(max-width:768px){
+
+.hero-title{
+font-size:48px;
+letter-spacing:2px;
+}
+
+.menu-icon{
+font-size:26px;
+}
+
+.social i{
+font-size:34px;
+}
+
+}
+
 </style>
 </head>
 
@@ -171,6 +198,7 @@ border-radius:20px;
 <div class="menu-container">
 
 <input type="checkbox" id="menu-toggle">
+
 <label for="menu-toggle" class="menu-icon">☰</label>
 
 <nav class="menu">
@@ -184,18 +212,22 @@ border-radius:20px;
 
 <div class="content">
 
+<!-- 🎸 TITULO -->
 <header class="hero-title">
 Nacho & The Cheddar's
 </header>
 
+<!-- BOTON -->
 <a class="btn-spotify" href="#canciones">
 ▶ Escuchar ahora
 </a>
 
+<!-- FOTO -->
 <section id="galeria">
 <img class="foto" src="Kif28-03-26222.jpg">
 </section>
 
+<!-- REDES -->
 <section id="redes">
 
 <h2>La seguimos en redes</h2>
