@@ -12,9 +12,6 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<!-- TIPOGRAFÍA -->
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
 <style>
 
 body{
@@ -24,6 +21,7 @@ color:#fff;
 text-align:center;
 margin:0;
 scroll-behavior:smooth;
+overflow-x:hidden;
 }
 
 /* 🎬 VIDEO DE FONDO */
@@ -76,6 +74,7 @@ background:rgba(0,0,0,0.5);
 padding:10px 15px;
 border-radius:10px;
 display:inline-block;
+backdrop-filter:blur(5px);
 }
 
 .menu{
@@ -92,6 +91,7 @@ color:#fff;
 text-decoration:none;
 padding:10px;
 border-bottom:1px solid rgba(255,255,255,0.2);
+font-weight:bold;
 }
 
 .menu a:last-child{
@@ -102,43 +102,40 @@ border-bottom:none;
 display:flex;
 }
 
-/* 🎸 TITULO PRINCIPAL */
-.hero-title{
+/* 🎸 LOGO PRINCIPAL */
+.hero-logo{
+margin-top:40px;
+display:flex;
+justify-content:center;
+align-items:center;
 padding:20px;
-font-size:72px;
-font-family:'Bebas Neue', sans-serif;
-letter-spacing:4px;
-text-shadow:
-0 0 10px rgba(0,0,0,0.9),
-0 0 25px rgba(0,0,0,0.7);
-margin-top:80px;
-color:#fff;
 }
 
-/* & EN COOPER BLACK */
-.hero-title .amp{
-font-family:'Cooper Black', serif;
-font-size:82px;
-margin:0 10px;
-display:inline-block;
-transform:translateY(3px);
+.hero-logo img{
+width:900px;
+max-width:94%;
+filter:
+drop-shadow(0 10px 25px rgba(0,0,0,0.85));
 }
 
 /* botón Spotify */
 .btn-spotify{
 display:inline-block;
-margin-top:20px;
-padding:12px 25px;
+margin-top:10px;
+padding:14px 30px;
 background:#1DB954;
 color:#fff;
-border-radius:30px;
+border-radius:40px;
 text-decoration:none;
 font-weight:bold;
+font-size:16px;
 transition:0.3s;
+box-shadow:0 0 15px rgba(29,185,84,0.4);
 }
 
 .btn-spotify:hover{
 transform:scale(1.05);
+box-shadow:0 0 25px rgba(29,185,84,0.7);
 }
 
 /* foto */
@@ -146,25 +143,35 @@ transform:scale(1.05);
 width:700px;
 max-width:90%;
 border-radius:20px;
-margin:10px;
+margin:30px 10px;
+box-shadow:0 0 30px rgba(0,0,0,0.6);
 }
 
 /* redes */
 .socials{
 display:flex;
 justify-content:center;
-gap:20px;
-margin-bottom:40px;
+gap:25px;
+margin-bottom:50px;
+margin-top:20px;
+flex-wrap:wrap;
 }
 
 .social i{
-font-size:40px;
+font-size:42px;
 color:#fff;
 transition:0.3s;
 }
 
 .social i:hover{
 transform:scale(1.2);
+}
+
+/* títulos */
+h2{
+font-size:32px;
+margin-top:30px;
+text-shadow:0 0 15px rgba(0,0,0,0.8);
 }
 
 /* iframe */
@@ -176,21 +183,30 @@ border-radius:20px;
 /* 📱 RESPONSIVE */
 @media(max-width:768px){
 
-.hero-title{
-font-size:48px;
-letter-spacing:2px;
+.hero-logo{
+margin-top:80px;
 }
 
-.hero-title .amp{
-font-size:58px;
+.hero-logo img{
+width:95%;
 }
 
 .menu-icon{
 font-size:26px;
+padding:8px 12px;
+}
+
+.btn-spotify{
+font-size:14px;
+padding:12px 24px;
 }
 
 .social i{
 font-size:34px;
+}
+
+h2{
+font-size:24px;
 }
 
 }
@@ -223,22 +239,22 @@ font-size:34px;
 
 <div class="content">
 
-<!-- 🎸 TITULO -->
-<header class="hero-title">
-Nacho <span class="amp">&</span> The Cheddar's
+<!-- 🎸 LOGO -->
+<header class="hero-logo">
+<img src="LogoTitulo.png" alt="Nacho and The Cheddar's">
 </header>
 
-<!-- BOTON -->
+<!-- 🎵 BOTÓN -->
 <a class="btn-spotify" href="#canciones">
 ▶ Escuchar ahora
 </a>
 
-<!-- FOTO -->
+<!-- 📸 FOTO -->
 <section id="galeria">
 <img class="foto" src="Kif28-03-26222.jpg">
 </section>
 
-<!-- REDES -->
+<!-- 🌐 REDES -->
 <section id="redes">
 
 <h2>La seguimos en redes</h2>
