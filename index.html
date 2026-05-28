@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,7 +24,7 @@ margin:0;
 scroll-behavior:smooth;
 }
 
-/* 🎬 VIDEO DE FONDO (MEJORADO) */
+/* 🎬 VIDEO DE FONDO */
 .bg-video{
 position:fixed;
 top:50%;
@@ -33,12 +34,10 @@ height:100vh;
 object-fit:cover;
 transform:translate(-50%, -50%);
 z-index:-1;
-
-/* 🔧 NUEVO: menos brillo + más difuso */
 filter:brightness(0.35) blur(2px);
 }
 
-/* overlay adicional oscuro */
+/* overlay */
 body::before{
 content:"";
 position:fixed;
@@ -64,7 +63,9 @@ left:20px;
 z-index:100;
 }
 
-#menu-toggle{ display:none; }
+#menu-toggle{
+display:none;
+}
 
 .menu-icon{
 font-size:30px;
@@ -109,21 +110,53 @@ text-shadow:0 0 20px rgba(0,0,0,0.8);
 margin-top:80px;
 }
 
-/* botón Spotify */
-.btn-spotify{
-display:inline-block;
-margin-top:20px;
-padding:12px 25px;
+/* 🎵 PLAYER SPOTIFY CUSTOM */
+.spotify-player{
+display:inline-flex;
+align-items:center;
+gap:15px;
 background:#1DB954;
-color:#fff;
-border-radius:30px;
-text-decoration:none;
+color:white;
+padding:14px 24px;
+border-radius:40px;
 font-weight:bold;
+cursor:pointer;
+margin-top:20px;
+box-shadow:0 0 20px rgba(29,185,84,0.4);
 transition:0.3s;
+user-select:none;
 }
 
-.btn-spotify:hover{
-transform:scale(1.05);
+.spotify-player:hover{
+transform:scale(1.03);
+}
+
+.spotify-player button{
+background:none;
+border:none;
+color:white;
+font-size:20px;
+cursor:pointer;
+}
+
+.player-info{
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+}
+
+.player-title{
+font-size:16px;
+font-weight:bold;
+}
+
+.player-time{
+font-size:13px;
+opacity:0.9;
+}
+
+#audio-player{
+display:none;
 }
 
 /* foto */
@@ -131,7 +164,7 @@ transform:scale(1.05);
 width:700px;
 max-width:90%;
 border-radius:20px;
-margin:10px;
+margin:30px 10px;
 }
 
 /* redes */
@@ -171,6 +204,7 @@ border-radius:20px;
 <div class="menu-container">
 
 <input type="checkbox" id="menu-toggle">
+
 <label for="menu-toggle" class="menu-icon">☰</label>
 
 <nav class="menu">
@@ -188,22 +222,20 @@ border-radius:20px;
 Nacho & The Cheddar's
 </header>
 
-<a class="btn-spotify" href="#player">
-▶ Escuchar Bonus Track
-</a>
+<!-- 🎵 PLAYER -->
+<div class="spotify-player" onclick="toggleAudio()">
 
-<br><br>
+<button id="play-btn">▶</button>
 
-<style>
-.player{
-  width:320px;
-  height:40px;
-  border-radius:30px;
-}
-</style>
+<div class="player-info">
+<div class="player-title">Escuchar Bonus Track</div>
+<div class="player-time" id="time">0:00</div>
+</div>
 
-<audio controls id="player" class="player">
-  <source src="https://raw.githubusercontent.com/nachoandthecheddars/nacho-cheddars-web/main/NI%20ANTES%20NI%20DESPUES%20MP3.mp3" type="audio/mpeg">
+</div>
+
+<audio id="audio-player">
+<source src="https://raw.githubusercontent.com/nachoandthecheddars/nacho-cheddars-web/main/NI%20ANTES%20NI%20DESPUES%20MP3.mp3" type="audio/mpeg">
 </audio>
 
 <section id="galeria">
@@ -246,5 +278,45 @@ target="_blank">
 
 </div>
 
+<script>
+
+const audio = document.getElementById("audio-player");
+const time = document.getElementById("time");
+const playBtn = document.getElementById("play-btn");
+
+function toggleAudio(){
+
+if(audio.paused){
+audio.play();
+playBtn.innerText = "❚❚";
+}else{
+audio.pause();
+playBtn.innerText = "▶";
+}
+
+}
+
+audio.addEventListener("timeupdate", ()=>{
+
+let minutes = Math.floor(audio.currentTime / 60);
+let seconds = Math.floor(audio.currentTime % 60);
+
+if(seconds < 10){
+seconds = "0" + seconds;
+}
+
+time.innerText = minutes + ":" + seconds;
+
+});
+
+audio.addEventListener("ended", ()=>{
+
+playBtn.innerText = "▶";
+
+});
+
+</script>
+
 </body>
 </html>
+```
