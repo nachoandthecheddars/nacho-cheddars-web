@@ -141,18 +141,12 @@ cursor:pointer;
 
 .player-info{
 display:flex;
-flex-direction:column;
-align-items:flex-start;
+align-items:center;
 }
 
 .player-title{
 font-size:16px;
 font-weight:bold;
-}
-
-.player-time{
-font-size:13px;
-opacity:0.9;
 }
 
 #audio-player{
@@ -228,10 +222,9 @@ Nacho & The Cheddar's
 <button id="play-btn">▶</button>
 
 <div class="player-info">
-<div class="player-title">Ni Antes, Ni Después</div>
-<div class="player-time" id="time">0:00</div>
+<div class="player-title">
+Escuchar Bonus Track • <span id="time">0:00</span>
 </div>
-
 </div>
 
 <audio id="audio-player">
