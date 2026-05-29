@@ -3,34 +3,158 @@
 
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Galería</title>
 
 <style>
 
 body{
+margin:0;
 background:black;
-color:white;
 font-family:Arial;
+color:white;
 text-align:center;
+overflow:hidden;
 }
 
-img{
-width:700px;
+/* botón volver */
+.back-btn{
+position:absolute;
+top:20px;
+left:20px;
+background:#1DB954;
+color:white;
+padding:12px 22px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+z-index:10;
+transition:0.3s;
+}
+
+.back-btn:hover{
+transform:scale(1.05);
+}
+
+/* galería */
+.gallery-container{
+position:relative;
+width:100vw;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* imágenes */
+.gallery-image{
 max-width:90%;
+max-height:80vh;
 border-radius:20px;
-margin:20px;
+box-shadow:0 0 30px rgba(255,255,255,0.15);
+transition:0.3s;
+}
+
+/* flechas */
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:60px;
+color:white;
+background:rgba(0,0,0,0.4);
+padding:10px 20px;
+cursor:pointer;
+border-radius:20px;
+user-select:none;
+transition:0.3s;
+}
+
+.arrow:hover{
+background:rgba(29,185,84,0.8);
+}
+
+.left{
+left:20px;
+}
+
+.right{
+right:20px;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<h1>Galería</h1>
+<!-- volver -->
+<a class="back-btn" href="index.html">
+⬅ Volver
+</a>
 
-<img src="Kif28-03-26222.jpg">
-<img src="otrafoto.jpg">
+<!-- galería -->
+<div class="gallery-container">
+
+<div class="arrow left" onclick="prevImage()">
+❮
+</div>
+
+<img id="gallery-image"
+class="gallery-image"
+src="Kif28-03-26222.jpg">
+
+<div class="arrow right" onclick="nextImage()">
+❯
+</div>
+
+</div>
+
+<script>
+
+const images = [
+
+"Kif28-03-26222.jpg",
+"foto2.jpg",
+"foto3.jpg"
+
+];
+
+let current = 0;
+
+const galleryImage = document.getElementById("gallery-image");
+
+function showImage(){
+
+galleryImage.src = images[current];
+
+}
+
+function nextImage(){
+
+current++;
+
+if(current >= images.length){
+current = 0;
+}
+
+showImage();
+
+}
+
+function prevImage(){
+
+current--;
+
+if(current < 0){
+current = images.length - 1;
+}
+
+showImage();
+
+}
+
+</script>
 
 </body>
 </html>
