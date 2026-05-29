@@ -29,7 +29,7 @@ padding:12px 22px;
 border-radius:30px;
 text-decoration:none;
 font-weight:bold;
-z-index:30;
+z-index:10;
 transition:0.3s;
 }
 
@@ -37,7 +37,7 @@ transition:0.3s;
 transform:scale(1.05);
 }
 
-/* contenedor galería */
+/* galería */
 .gallery-container{
 position:relative;
 width:100vw;
@@ -47,14 +47,13 @@ justify-content:center;
 align-items:center;
 }
 
-/* imagen principal */
+/* imágenes */
 .gallery-image{
 max-width:90%;
 max-height:80vh;
 border-radius:20px;
 box-shadow:0 0 30px rgba(255,255,255,0.15);
 transition:0.3s;
-cursor:pointer;
 }
 
 /* flechas */
@@ -70,61 +69,18 @@ cursor:pointer;
 border-radius:20px;
 user-select:none;
 transition:0.3s;
-z-index:10;
 }
 
 .arrow:hover{
 background:rgba(29,185,84,0.8);
 }
 
-.left{ left:20px; }
-.right{ right:20px; }
-
-/* ===== LANDING REDES ===== */
-
-.social-landing{
-position:absolute;
-bottom:25px;
-left:50%;
-transform:translateX(-50%);
-display:flex;
-gap:25px;
-z-index:20;
+.left{
+left:20px;
 }
 
-.social-btn{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-decoration:none;
-color:white;
-font-weight:bold;
-font-size:14px;
-transition:0.3s;
-}
-
-.social-btn img{
-width:65px;
-height:65px;
-border-radius:50%;
-border:2px solid #1DB954;
-box-shadow:0 0 15px rgba(29,185,84,0.3);
-transition:0.3s;
-}
-
-.social-btn:hover img{
-transform:scale(1.15);
-box-shadow:0 0 30px rgba(29,185,84,0.7);
-}
-
-.social-btn span{
-margin-top:6px;
-opacity:0.8;
-}
-
-.social-btn:hover span{
-opacity:1;
+.right{
+right:20px;
 }
 
 </style>
@@ -133,30 +89,23 @@ opacity:1;
 <body>
 
 <!-- volver -->
-<a class="back-btn" href="index.html">⬅ Volver</a>
+<a class="back-btn" href="index.html">
+⬅ Volver
+</a>
 
 <!-- galería -->
 <div class="gallery-container">
 
-<div class="arrow left" onclick="prevImage()">❮</div>
+<div class="arrow left" onclick="prevImage()">
+❮
+</div>
 
-<img id="gallery-image" class="gallery-image" src="Kif28-03-26222.jpg">
+<img id="gallery-image"
+class="gallery-image"
+src="Kif28-03-26222.jpg">
 
-<div class="arrow right" onclick="nextImage()">❯</div>
-
-<!-- landing redes -->
-<div class="social-landing">
-
-<a href="https://www.instagram.com/TU_USUARIO" target="_blank" class="social-btn">
-<img src="img/instagram.jpg" alt="Instagram">
-<span>Instagram</span>
-</a>
-
-<a href="https://www.facebook.com/TU_PAGINA" target="_blank" class="social-btn">
-<img src="img/facebook.jpg" alt="Facebook">
-<span>Facebook</span>
-</a>
-
+<div class="arrow right" onclick="nextImage()">
+❯
 </div>
 
 </div>
@@ -164,9 +113,11 @@ opacity:1;
 <script>
 
 const images = [
+
 "Kif28-03-26222.jpg",
 "foto2.jpg",
 "foto3.jpg"
+
 ];
 
 let current = 0;
@@ -174,20 +125,33 @@ let current = 0;
 const galleryImage = document.getElementById("gallery-image");
 
 function showImage(){
+
 galleryImage.src = images[current];
-galleryImage.onclick = null;
+
 }
 
 function nextImage(){
+
 current++;
-if(current >= images.length) current = 0;
+
+if(current >= images.length){
+current = 0;
+}
+
 showImage();
+
 }
 
 function prevImage(){
+
 current--;
-if(current < 0) current = images.length - 1;
+
+if(current < 0){
+current = images.length - 1;
+}
+
 showImage();
+
 }
 
 </script>
