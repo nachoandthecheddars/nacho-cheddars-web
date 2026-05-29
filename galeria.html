@@ -37,7 +37,7 @@ transition:0.3s;
 transform:scale(1.05);
 }
 
-/* galería */
+/* contenedor galería */
 .gallery-container{
 position:relative;
 width:100vw;
@@ -47,7 +47,7 @@ justify-content:center;
 align-items:center;
 }
 
-/* imagen */
+/* imagen principal */
 .gallery-image{
 max-width:90%;
 max-height:80vh;
@@ -77,13 +77,8 @@ z-index:10;
 background:rgba(29,185,84,0.8);
 }
 
-.left{
-left:20px;
-}
-
-.right{
-right:20px;
-}
+.left{ left:20px; }
+.right{ right:20px; }
 
 /* ===== LANDING REDES ===== */
 
@@ -138,9 +133,7 @@ opacity:1;
 <body>
 
 <!-- volver -->
-<a class="back-btn" href="index.html">
-⬅ Volver
-</a>
+<a class="back-btn" href="index.html">⬅ Volver</a>
 
 <!-- galería -->
 <div class="gallery-container">
@@ -151,7 +144,7 @@ opacity:1;
 
 <div class="arrow right" onclick="nextImage()">❯</div>
 
-<!-- LANDING REDES -->
+<!-- landing redes -->
 <div class="social-landing">
 
 <a href="https://www.instagram.com/TU_USUARIO" target="_blank" class="social-btn">
