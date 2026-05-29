@@ -29,7 +29,7 @@ padding:12px 22px;
 border-radius:30px;
 text-decoration:none;
 font-weight:bold;
-z-index:10;
+z-index:30;
 transition:0.3s;
 }
 
@@ -47,13 +47,14 @@ justify-content:center;
 align-items:center;
 }
 
-/* imágenes */
+/* imagen */
 .gallery-image{
 max-width:90%;
 max-height:80vh;
 border-radius:20px;
 box-shadow:0 0 30px rgba(255,255,255,0.15);
 transition:0.3s;
+cursor:pointer;
 }
 
 /* flechas */
@@ -69,6 +70,7 @@ cursor:pointer;
 border-radius:20px;
 user-select:none;
 transition:0.3s;
+z-index:10;
 }
 
 .arrow:hover{
@@ -81,6 +83,53 @@ left:20px;
 
 .right{
 right:20px;
+}
+
+/* ===== LANDING REDES ===== */
+
+.social-landing{
+position:absolute;
+bottom:25px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:25px;
+z-index:20;
+}
+
+.social-btn{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+color:white;
+font-weight:bold;
+font-size:14px;
+transition:0.3s;
+}
+
+.social-btn img{
+width:65px;
+height:65px;
+border-radius:50%;
+border:2px solid #1DB954;
+box-shadow:0 0 15px rgba(29,185,84,0.3);
+transition:0.3s;
+}
+
+.social-btn:hover img{
+transform:scale(1.15);
+box-shadow:0 0 30px rgba(29,185,84,0.7);
+}
+
+.social-btn span{
+margin-top:6px;
+opacity:0.8;
+}
+
+.social-btn:hover span{
+opacity:1;
 }
 
 </style>
@@ -96,16 +145,25 @@ right:20px;
 <!-- galería -->
 <div class="gallery-container">
 
-<div class="arrow left" onclick="prevImage()">
-❮
-</div>
+<div class="arrow left" onclick="prevImage()">❮</div>
 
-<img id="gallery-image"
-class="gallery-image"
-src="Kif28-03-26222.jpg">
+<img id="gallery-image" class="gallery-image" src="Kif28-03-26222.jpg">
 
-<div class="arrow right" onclick="nextImage()">
-❯
+<div class="arrow right" onclick="nextImage()">❯</div>
+
+<!-- LANDING REDES -->
+<div class="social-landing">
+
+<a href="https://www.instagram.com/TU_USUARIO" target="_blank" class="social-btn">
+<img src="img/instagram.jpg" alt="Instagram">
+<span>Instagram</span>
+</a>
+
+<a href="https://www.facebook.com/TU_PAGINA" target="_blank" class="social-btn">
+<img src="img/facebook.jpg" alt="Facebook">
+<span>Facebook</span>
+</a>
+
 </div>
 
 </div>
@@ -113,11 +171,9 @@ src="Kif28-03-26222.jpg">
 <script>
 
 const images = [
-
 "Kif28-03-26222.jpg",
 "foto2.jpg",
 "foto3.jpg"
-
 ];
 
 let current = 0;
@@ -125,33 +181,20 @@ let current = 0;
 const galleryImage = document.getElementById("gallery-image");
 
 function showImage(){
-
 galleryImage.src = images[current];
-
+galleryImage.onclick = null;
 }
 
 function nextImage(){
-
 current++;
-
-if(current >= images.length){
-current = 0;
-}
-
+if(current >= images.length) current = 0;
 showImage();
-
 }
 
 function prevImage(){
-
 current--;
-
-if(current < 0){
-current = images.length - 1;
-}
-
+if(current < 0) current = images.length - 1;
 showImage();
-
 }
 
 </script>
